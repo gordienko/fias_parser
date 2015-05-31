@@ -86,7 +86,7 @@ module FiasParser
         return false
       end 
 
-      line = Cocaine::CommandLine.new( "unrar", "h" )
+      line = Cocaine::CommandLine.new( "unrar" )
 
       begin
         line.run
