@@ -137,7 +137,7 @@ module FiasParser
 
       FileUtils.mkdir_p ( [dir, @date].join('/') ) unless File.exists?( [dir, @date].join('/') )
 
-      line = Cocaine::CommandLine.new( "unrar", "x :archive :dir/:date" )
+      line = Cocaine::CommandLine.new( "unrar", "x -y :archive :dir/:date" )
 
       line.run( {
         archive: self.archive_file_path,
