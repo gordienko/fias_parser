@@ -86,12 +86,12 @@ module FiasParser
         return false
       end 
 
-      line = Cocaine::CommandLine.new( "unrar", "-h" )
+      line = Cocaine::CommandLine.new( "unrar", "h" )
 
       begin
         line.run
       rescue Cocaine::CommandNotFoundError => e
-        puts 'unar is not installed. Run "sudo apt-get install unar"'
+        puts 'unrar is not installed. Run "sudo yum install unrar"'
 
         return false
       end 
