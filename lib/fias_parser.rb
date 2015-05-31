@@ -86,15 +86,15 @@ module FiasParser
         return false
       end 
 
-      line = Cocaine::CommandLine.new( "unar", "-h" )
+      # line = Cocaine::CommandLine.new( "unar", "-h" )
 
-      begin
-        line.run
-      rescue Cocaine::CommandNotFoundError => e
-        puts 'unar is not installed. Run "sudo apt-get install unar"'
+      # begin
+      #   line.run
+      # rescue Cocaine::CommandNotFoundError => e
+      #   puts 'unar is not installed. Run "sudo apt-get install unar"'
 
-        return false
-      end 
+      #   return false
+      # end 
 
       true
     end
@@ -137,11 +137,12 @@ module FiasParser
 
       FileUtils.mkdir_p ( dir ) unless File.exists?( dir )
 
-      line = Cocaine::CommandLine.new( "unar", "-o :dir :archive" )
+      line = Cocaine::CommandLine.new( "unrar", ":archive :dir/:date" )
 
       line.run( {
-        dir: dir,
         archive: self.archive_file_path,
+        dir: dir,
+        date: @date
       } )
     end
 
